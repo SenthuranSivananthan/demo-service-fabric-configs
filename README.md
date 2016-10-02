@@ -17,4 +17,21 @@ At the end of the configuration load, all settings are overlayed and the final c
 
 You can access the configuration through:  `FabricRuntime.GetActivationContext().GetConfigurationPackageObject("Config")`
 
+```C#
+  var config = FabricRuntime.GetActivationContext().GetConfigurationPackageObject("Config");
+            
+  if (config != null)
+  {
+    if (config.Settings?.Sections?.Contains("Database") == true)
+    {
+      var settings = config.Settings.Sections["Database"];
+      if (true == settings?.Parameters.Contains(key))
+      {
+        ConfigurationProperty prop = settings.Parameters[key];
+        // do somethign with the configuration
+      }
+    }
+  }
+```
+
 You can encrypt the configuration values and this is explained in [Azure Documentation](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-secret-management/).
