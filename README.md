@@ -16,3 +16,5 @@ When your application & services start, configuration is loaded in the order the
 At the end of the configuration load, all settings are overlayed and the final configuration (including any overrides) are presented to the application.
 
 You can access the configuration through:  `FabricRuntime.GetActivationContext().GetConfigurationPackageObject("Config")`
+
+You can encrypt the configuration values and this is explained in [Azure Documentation](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-application-secret-management/).
